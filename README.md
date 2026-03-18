@@ -6,11 +6,11 @@ Repo for the classes of the Master of the Universe at Unizar.
 Install APSYNSIM and APSYNTRUE from
 https://github.com/marti-vidal-i/APSYNSIM
 
-The easiest way will be to clone the repository.
+The easiest is to clone the repository.
 
 ## Learning radio interferometry with Difmap
 
 Install the software Difmap by following the instructions in 
 
-./difmap/README.md 
+`./difmap/README.md` 
 
