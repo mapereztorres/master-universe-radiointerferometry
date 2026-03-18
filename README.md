@@ -12,5 +12,5 @@ The easiest is to clone the repository.
 
 Install the software Difmap by following the instructions in 
 
-`./difmap/README.md` 
+https://github.com/mapereztorres/master-universe-radiointerferometry/difmap/README.md 
 
