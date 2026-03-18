@@ -10,7 +10,7 @@ The easiest way will be to clone the repository.
 
 ## Learning radio interferometry with Difmap
 
-Follow the instructions in 
+Install the software Difmap by following the instructions in 
 
-'./difmap/README.md' to install Difmap.
+./difmap/README.md 
 
