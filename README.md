@@ -12,5 +12,5 @@ The easiest way will be to clone the repository.
 
 Follow the instructions in 
 
-`./difmap/README.md' to install Difmap.
+'./difmap/README.md' to install Difmap.
 
