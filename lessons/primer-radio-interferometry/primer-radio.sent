@@ -1,0 +1,436 @@
+#Class title
+
+A Primer of Radio Interferometry
+Miguel Pérez-Torres (torres@iaa.csic.es)
+Instituto de Astrofísica de Andalucía - CSIC, Granada
+
+
+At the end of this class, I hope you'll understand:
+why radio interferometry is needed
+what an interferometer measures
+how those measurements become an image
+why calibration and incomplete sampling matter.
+
+
+
+#Slide 0 
+Units
+
+Astrophysicists normally use cgs 
+Radio astronomers measure flux densities in Jy
+Get used to convert cm to GHz and viceversa
+
+cgs - centimeter, gram, second
+1 Jy = 1E-23 erg/s/cm/Hz
+Radio: from ~10 MHz up to ~100 GHz (submm)
+
+
+
+# Slide 1
+Why radio interferometry?
+
+Radio wavelengths are long, so achieving 
+high angular resolution with a 
+single dish is very difficult.
+
+#What to show
+
+A simple comparison:
+optical wavelength: ∼500 nm
+radio wavelength: cm to m
+θ ∼ λ / D
+
+Interferometry - A solution to 
+the angular-resolution problem
+
+# VLA figure
+@slide1-why-radio-interferometry.png
+
+#Suggested figure
+#A visual comparing:
+#a small optical wavelength,
+#a much longer radio wavelength,
+#and the effect on angular resolution for the same telescope diameter.
+#A simple schematic is enough. You can even draw it yourself.
+
+#Speaker notes
+
+#Start with the basic question:
+#“Why do radio astronomers build arrays instead of just larger telescopes?”
+
+#Then explain:
+
+#angular resolution worsens as wavelength increases,
+#radio astronomy works at wavelengths many orders of magnitude longer than optical,
+#so a single radio dish has poor angular resolution unless it is enormous.
+
+#A concrete comparison helps:
+
+#a 10 m optical telescope has excellent resolution,
+#a 10 m radio telescope at 21 cm does not.
+#What to say explicitly
+
+#“Interferometry is mainly a solution to the angular-resolution problem.”
+
+#Slide 2 — What is a radio telescope?
+What is a radio telescope?
+
+
+Radio telescope = antenna plus electronics. 
+It turns incoming electromagnetic waves 
+into a measurable signal.
+
+
+sky signal → dish/antenna → 
+receiver → recorded voltage/data
+
+@slide2-antenna-and-beam.png
+
+#radio is still electromagnetic radiation,
+#sources emit radio photons just as they emit at other wavelengths,
+#the telescope does not record a conventional photograph,
+#instead it measures the incoming signal electronically.
+
+Basic terms: 
+Flux density: how bright a source is (Jy)
+Beam: the angular response of the telescope (arcsec^2)
+Resolution: smallest separation distinguishable (arcsec)
+Sensitivity: faintest signal detectable (Jy/beam)
+
+#Slide 3 — Single-dish imaging: useful, but limited
+Single-dish imaging
+
+Single-dish imaging: useful, but limited
+A single dish measures total power, 
+but its angular resolution is limited by λ/D.
+
+
+The "beam":
+
+Point source on the sky,
+observed as a blurred spot 
+due to the telescope response.
+
+@slide2-antenna-and-beam.png
+
+#a dish does not see infinitesimally sharp points,
+#everything is blurred by the beam,
+#larger dishes have narrower beams,
+#but building extremely large single dishes is hard and expensive.
+
+A single dish gives you 
+collecting area and total power, 
+but not arbitrarily high resolution.
+
+
+
+#Slide 4 — Two antennas: the basic interferometer
+Two antennas: 
+the basic interferometer
+
+@slide4-young-double-slit.png
+
+@slide4b-two-element-interferometer.png
+
+Two separated antennas receive 
+the same wave 
+with a geometric delay. 
+That delay contains directional information.
+
+
+#What to show
+
+#A geometric diagram:
+
+#distant source,
+#two antennas,
+#baseline 
+#B
+#B,
+#extra path length to one antenna,
+#incoming wavefront.
+#Suggested figure
+
+#This is one of the most important figures in the lecture. A clean geometry diagram is essential.
+
+#Speaker notes
+
+#Explain the basic logic:
+
+#if the source is directly overhead relative to the baseline, the signal reaches both antennas together,
+#if the source is offset, one antenna receives the signal slightly earlier,
+#that delay depends on the source direction.
+
+#Then state the key consequence:
+
+Angular resolution -  
+Now set roughly by the baseline:
+θ ∼ λ / D  
+(Note that D now is the "B"aseline,
+the antenna separation, not the antenna
+sizes).
+
+#Important clarification
+
+#Do not oversimplify into “two dishes make a giant telescope” without nuance.
+
+#Say instead:
+
+#an interferometer can achieve the resolving power associated with a large separation,
+#but it does not behave exactly like a filled aperture.
+
+#That distinction matters later when you discuss incomplete sampling.
+
+#Slide 5 — Resolution, collecting area, and baselines
+Resolution, 
+collecting area, 
+and baselines
+
+Baselines control resolution 
+Collecting area controls sensitivity.
+
+#A compact comparison table:
+
+#Quantity	Mainly controlled by
+#Resolution	baseline length
+#Sensitivity	collecting area, bandwidth, integration time
+#Suggested figure
+
+#You can reuse the baseline geometry and add a second cartoon:
+
+#same dish size, longer baseline → better resolution
+#same baseline, larger dishes → better sensitivity
+#Speaker notes
+
+#This is a good conceptual checkpoint.
+
+#Make the distinction very explicit:
+
+Baselines control resolution: 
+Long baseline → sensitive to fine angular detail.
+Collecting area controls sensitivity:
+Large dishes / more antennas / more observing time 
+→ better detection of faint sources.
+
+#“Interferometers solve the resolution problem by separation, not by filling the whole aperture.”
+Interferometers solve the resolution problem 
+by separation, not by filling the whole aperture.
+
+#Slide 6 — What does an interferometer actually measure?
+What does an interferometer actually measure?
+
+An interferometer does not directly measure an image. 
+It measures correlations between antenna signals.
+
+#What to show
+
+#Introduce the term:
+
+#visibility
+
+#Explain that each antenna pair gives a complex number:
+
+#amplitude,
+#phase.
+
+The "Visibility" 
+
+Visibility: V(u,v)
+Each antenna pair gives a complex number:
+Amplitude (Real part) 
+Phase (Complex part)
+
+#Suggested figure
+#A simple pipeline:
+#signal at antenna 1 + signal at antenna 2 → correlate → visibility
+
+Optical cameras measure something close to image-plane intensity.
+Radio interferometers measure pairwise correlations,
+These correlations are the data product we call visibilities.
+
+Visibility: V(u,v)
+Amplitude tells you how much structure exists on a given scale,
+Phase contains positional/asymmetry information.
+
+The basic measured quantity is not brightness on the sky, 
+but a Fourier component of the sky
+
+#Slide 7 — Fourier idea: sky and spatial frequencies
+Fourier idea: 
+sky and spatial frequencies
+
+An interferometer samples the Fourier transform 
+of the sky brightness distribution.
+V(u,v)↔I(l,m)
+
+@slide7-2antennas.png
+
+@slide7-8antennas.png
+
+
+Extended emission corresponds to low spatial frequencies,
+Compact emission corresponds to high spatial frequencies.
+
+
+An analogy:
+
+Ordinary sound can be decomposed into frequencies
+Images can be decomposed into spatial frequencies
+Interferometers sample those spatial frequencies
+
+Short baselines → low spatial frequencies → large-scale structure
+Long baselines → high spatial frequencies → fine detail
+Different baselines probe different angular scales
+
+#Slide 8 — The u-v plane and Earth rotation synthesis
+The u-v plane and 
+Earth rotation synthesis
+
+
+Each antenna pair samples one point, 
+or track, in Fourier space. 
+Earth rotation helps fill that space.
+N_baselines = N (N−1) / 2
+The more antennas, the more baselines 
+=> better u-v coverage => better image fidelity.
+
+Interferometers do not sample all Fourier modes continuously.
+That is why imaging is incomplete and requires care.
+
+
+#the 
+#u
+#u-
+#v
+#v plane,
+#one baseline track as the Earth rotates,
+#better coverage for more antennas and longer observations.
+
+
+
+#at any instant, a baseline samples one Fourier component,
+#as the Earth rotates, the projected baseline changes,
+#this lets the array sample many more components over time.
+
+#Then note:
+
+#Slide 9 — From visibilities to image
+From visibilities to image
+
+
+Radio interferometric imaging is an inverse problem with incomplete data
+You make an image by inverse Fourier transforming 
+the measured visibilities, 
+but incomplete sampling creates artifacts.
+
+If Fourier sampling were complete, 
+image recovery would be straightforward.
+In practice, u-v plane is sampled incompletely.
+The image is convolved with the 
+array’s effective response (the dirty beam).
+This introduces sidelobes and artifacts.
+Deconvolution methods such as CLEAN try to remove those artifacts.
+
+
+Visibilities 
+Inverse Fourier transform
+Dirty image
+Dirty beam
+Deconvolution (CLEAN)
+
+#A three-panel image:
+
+#true sky,
+#dirty beam / sidelobes,
+#dirty image,
+#cleaned image
+
+#If you only use one figure, show dirty beam and cleaned result.
+
+#Speaker notes
+
+#Explain:
+
+
+#Slide 10 — Calibration and real-world complications
+Calibration and 
+real-world complications
+
+Measured visibilities are affected by 
+the instrument and the atmosphere 
+=> calibration is essential.
+
+
+Antenna gain variations,
+Atmospheric/ionospheric effects,
+Bandpass response,
+Clock/Timing errors,
+Radio frequency interference (RFI).
+
+Real data are not ideal:
+Electronics vary
+The atmosphere changes phases and amplitudes
+Interference contaminates the data.
+
+True sky → 
+Corrupted measurement → 
+Calibration → 
+Corrected visibility
+Radio interferometry is not just Fourier inversion. 
+It also requires calibration.
+
+
+Interferometry works because we combine 
+correlation, calibration, 
+Fourier inversion, and deconvolution.
+
+#Slide 11 — What interferometers do well, and what they miss
+What interferometers do well, 
+and what they miss
+
+Interferometers are excellent 
+for high-resolution imaging, 
+but they can miss very extended emission.
+
+Good for 
+High angular resolution
+Compact structure
+Precise astrometry
+Imaging with many antennas
+
+Limited by
+Incomplete Fourier sampling,
+Missing short spacings,
+Need for calibration,
+Difficulty recovering very smooth large-scale emission
+
+
+#a very extended source,
+#short baselines needed to recover it,
+#long baselines mostly seeing fine structure.
+#
+
+
+An interferometer does not see every angular scale equally well.
+If you lack very short baselines, 
+you may not recover diffuse large-scale emission well.
+Array design determines what scales you are sensitive to.
+Interferometers and single dishes are often complementary.
+
+
+
+#Slide 12 — Final summary
+Summary
+
+
+▸ Radio wavelengths are long: 
+  Single dish has limited angular resolution.
+▸ Interferometers use separated antennas: 
+  Achieve much better resolving power.
+▸ They measure visibilities: 
+  Fourier samples of the sky brightness.
+▸ Imaging requires u-v coverage, calibration, and deconvolution.
+
+#If you will remember only one thing from this talk, remember that radio
+#interferometers do not directly take pictures; they sample Fourier space and
+#reconstruct the image from there.”
